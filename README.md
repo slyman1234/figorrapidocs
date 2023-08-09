@@ -13,5 +13,3 @@
     `#ffffff` Kindly register with us as a partner using the following url:
     After registration , you have to login to your account to get your API KEY.
     The api key is passed as client Id via when implementing the api on your platform.
-
-
