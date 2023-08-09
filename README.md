@@ -43,3 +43,11 @@
     amount: { type: String, required: true },
     }
 
+## RESPONSE:
+
+    ## 200 0K:
+       SUCCESSFUL
+    402:   error: "Cliend id has to start with Bearer with a space before clientid"
+    401:   error: “Client is unavailable”
+    403:   error:”Token is invalid”
+    404:   error:” error applying for insurance”
