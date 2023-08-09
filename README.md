@@ -21,7 +21,7 @@
 ## ENDPOINT 1  
 ## GADGET INSURANCE
 
-## Endpoint Url: 
+## ENDPOINT URL: 
      
     https://figorr-api.onrender.com/figoor/api/gadget/insuregadget
 
