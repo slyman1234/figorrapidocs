@@ -137,6 +137,49 @@
 
 
 
+
+## ENDPOINT 4
+## COMPREHENSIVE MOTOR INSURANCE
+
+## ENDPOINT URL: 
+     
+    https://figorr-api.onrender.com/figoor/api/comprehensivemotor/insurecomprehensive
+
+    METHOD: POST
+
+    CONTENT TYPE: "Content-Type": "multipart/form-data".
+
+## REQUEST:
+
+    {
+    fullname: { type: String, required: true },
+    dob: { type: String, required: true },
+    email: { type: String, required: true },
+    phone: { type: String, required: true },
+    identitypicture: { type: file, required: true },
+    carvalue: { type: String, required: true},
+    carparticulars: { type: file, required: true },
+    chasisno: { type: String, required: true },
+    driverlicense: { type: file, required: true },
+    pictureofvehicle: { type: file, required: true },
+    amount: { type: String, required: true },
+    }
+
+## RESPONSE:
+
+    200 0K:
+       SUCCESSFUL
+    402:   
+       error: "Cliend id has to start with Bearer with a space before clientid"
+    401:   
+       error: “Client is unavailable”
+    403:   
+        error:”Token is invalid”
+    404:   
+     error:” error applying for insurance”
+
+
+
 ## EXAMPLE IMPLEMENTATION
 
 
