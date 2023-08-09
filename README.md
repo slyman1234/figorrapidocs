@@ -29,4 +29,17 @@
 
     CONTENT TYPE: "Content-Type": "multipart/form-data".
 
+## REQUEST:
+
+    {
+    fullname: { type: String, required: true },
+    dob: { type: String, required: true },
+    email: { type: String, required: true },
+    phone: { type: String, required: true },
+    identitypicture: { type: file, required: true },
+    gadgetimeinumber: { type: String, required: true },
+    pictureofdevice: { type: file, required: true },
+    receiptofdevice: { type: file, required: true },
+    amount: { type: String, required: true },
+    }
 
