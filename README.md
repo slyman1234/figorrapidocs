@@ -55,3 +55,60 @@
         error:”Token is invalid”
     404:   
      error:” error applying for insurance”
+
+
+
+## EXAMPLE IMPLEMENTATION
+
+
+
+     Const clientid = 6gt67788hh77jjjjj777777777777jjj777 
+
+
+     const handleSubmit = async (e) => {
+     e.preventDefault();
+
+
+     setisLoading(true);
+     const formG = new FormData();
+     formG.append("fullname", formData.fullname);
+     formG.append("dob", formData.dob);
+     formG.append("email", formData.email);
+     formG.append("phone", formData.phone);
+     formG.append("identitypicture", formData.identitypicture);
+     formG.append("gadgetimeinumber", formData.gadgetimeinumber);
+     formG.append("pictureofdevice", formData.pictureofdevice);
+     formG.append("receiptofdevice", formData.receiptofdevice);
+     formG.append("amount", formData.amount);
+
+
+     await axios
+     .post(`${url}/gadget/insuregadget`, formG, {
+     headers: {
+     "Content-Type": "multipart/form-data",
+     Authorization: `Bearer ${clientid}`,
+     },
+     })
+     .then((response) => {
+    // Process the successful response here
+    seterrorStatus("");
+    setsuccessPost(response.data);
+    console.log(response.data);
+    setisLoading(false);
+    })
+    .catch((error) => {
+    // Handle error responses here
+    if (error.response) {
+    if (error.response.status === 402) {
+    seterrorStatus("Policy already exist");
+    setisLoading(false);
+    } else {
+    seterrorStatus("Unknown error exist while submiting form");
+    setisLoading(false);
+    }
+    } else {
+  
+     setisLoading(false);
+    }
+    });
+     };
