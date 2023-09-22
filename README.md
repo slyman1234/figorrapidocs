@@ -14,20 +14,38 @@
     After registration , you have to login to your account to get your API KEY.
     The api key is passed as client Id via when implementing the api on your platform.
 
-## <img width="1277" alt="Screenshot 2023-08-09 at 08 00 40" src="https://github.com/slyman1234/figorrapidocs/assets/103638220/d9d17975-d826-4c30-ba85-c2f7e2623185">
+    you have the LIve api Key and the Sandboxapi Key.
+    
+    The live api key is used for Production while the SandBox Api Key is used for Developement
+
+
+## AUTH ERROR RESPONSE 
+
+    403 0K:
+       error: api key does not match
+    401:   
+       error: "Api Key is required"
+  
+
 
 ## Below Is The  Documentation For Each Insurance Policy.
 
 ## ENDPOINT 1  
-## GADGET INSURANCE
+## FETCH ALL INSURANCE POLICY
+
+
+The folling endpoint is use to fetch all available insurance policies
 
 ## ENDPOINT URL: 
      
-    https://figorr-api.onrender.com/figoor/api/gadget/insuregadget
+    https://figorr-api.onrender.com/figoor/api/viewproduct/v1
 
-    METHOD: POST
+    METHOD: GET
 
-    CONTENT TYPE: "Content-Type": "multipart/form-data".
+       headers: {
+          "Content-Type": "application/json",
+          "api-key": 'api-key',
+        },
 
 ## REQUEST:
 
@@ -48,35 +66,32 @@
     200 0K:
        SUCCESSFUL
     402:   
-       error: "Cliend id has to start with Bearer with a space before clientid"
-    401:   
-       error: “Client is unavailable”
-    403:   
-        error:”Token is invalid”
+       error: "No Available product"
     404:   
-     error:” error applying for insurance”
+       error: “Error Fetching Products”
+
      
 
 ## ENDPOINT 2 
-## HEALTH INSURANCE
+## INSURANCE PREMIUM CALCULATION
 
 ## ENDPOINT URL: 
      
-    https://figorr-api.onrender.com/figoor/api/health/insurehealth
+    https://figorr-api.onrender.com/figoor/api/products/calculateproduct
 
     METHOD: POST
 
-    CONTENT TYPE: "Content-Type": "multipart/form-data".
+     headers: {
+          "Content-Type": "application/json",
+          "api-key": 'api-key',
+        },
+
 
 ## REQUEST:
 
     {
-    fullname: { type: String, required: true },
-    dob: { type: String, required: true },
-    email: { type: String, required: true },
-    phone: { type: String, required: true },
-    identitypicture: { type: file, required: true },
-    amount: { type: String, required: true },
+    id: { type: String, required: true }, // INSURANCE POLICY ID
+    amount: { type: String, required: true }, // INSURER COST AMOUNT
     }
 
 ## RESPONSE:
@@ -84,153 +99,61 @@
     200 0K:
        SUCCESSFUL
     402:   
-       error: "Cliend id has to start with Bearer with a space before clientid"
-    401:   
-       error: “Client is unavailable”
-    403:   
-        error:”Token is invalid”
-    404:   
-     error:” error applying for insurance”
-
-
+       error: "Error no available products"
+    406:   
+       error: “Error fetching products”
+  
 
 
 
 
 ## ENDPOINT 3 
-## THIRD PARTY MOTOR INSURANCE
+##  INSURANCE  APPLICATION
 
 ## ENDPOINT URL: 
      
-    https://figorr-api.onrender.com/figoor/api/thirdpartymotor/insurethirdpartymotor
+    https://figorr-api.onrender.com/figoor/api/v1/insurance
 
     METHOD: POST
 
-    CONTENT TYPE: "Content-Type": "multipart/form-data".
+         headers: {
+         "Content-Type": "multipart/form-data".
+          "api-key": 'api-key',
+        },
+
+
 
 ## REQUEST:
 
     {
-    fullname: { type: String, required: true },
-    dob: { type: String, required: true },
-    email: { type: String, required: true },
-    phone: { type: String, required: true },
-    identitypicture: { type: file, required: true },
-    carparticulars: { type: file, required: true },
-    chasisno: { type: String, required: true },
-    driverlicense: { type: file, required: true },
-    amount: { type: String, required: true },
+    policyid: { type: String, required: false },
+    policyname:{ type: String, required: false },
+    fullname: { type: String, required: false },
+    dob: { type: String, required: false },
+    email: { type: String, required: false },
+    phone: { type: String, required: false },
+    gadgetimeinumber: { type: String, required: false },
+    identitypicture: { type: FILE, required: false },
+    carparticulars: { type: FILE, required: false },
+    driverlicense: { type: FILE, required: false },
+    carvalue: { type: String, required: false },
+    chasisno: { type: String, required: false },
+    pictureofvehicle: { FILE: String, required: false },
+    pictureofdevice: { FILE: String, required: false },
+    receiptofdevice: { FILE: String, required: false },
+    amount: { type: String, required: false },
+    claimexpected: { type: String, required: false },
     }
 
 ## RESPONSE:
 
     200 0K:
        SUCCESSFUL
-    402:   
-       error: "Cliend id has to start with Bearer with a space before clientid"
-    401:   
-       error: “Client is unavailable”
-    403:   
-        error:”Token is invalid”
+
     404:   
      error:” error applying for insurance”
 
 
 
 
-## ENDPOINT 4
-## COMPREHENSIVE MOTOR INSURANCE
 
-## ENDPOINT URL: 
-     
-    https://figorr-api.onrender.com/figoor/api/comprehensivemotor/insurecomprehensive
-
-    METHOD: POST
-
-    CONTENT TYPE: "Content-Type": "multipart/form-data".
-
-## REQUEST:
-
-    {
-    fullname: { type: String, required: true },
-    dob: { type: String, required: true },
-    email: { type: String, required: true },
-    phone: { type: String, required: true },
-    identitypicture: { type: file, required: true },
-    carvalue: { type: String, required: true},
-    carparticulars: { type: file, required: true },
-    chasisno: { type: String, required: true },
-    driverlicense: { type: file, required: true },
-    pictureofvehicle: { type: file, required: true },
-    amount: { type: String, required: true },
-    }
-
-## RESPONSE:
-
-    200 0K:
-       SUCCESSFUL
-    402:   
-       error: "Cliend id has to start with Bearer with a space before clientid"
-    401:   
-       error: “Client is unavailable”
-    403:   
-        error:”Token is invalid”
-    404:   
-     error:” error applying for insurance”
-
-
-
-## EXAMPLE IMPLEMENTATION
-
-
-
-     Const clientid = 6gt67788hh77jjjjj777777777777jjj777 
-
-
-     const handleSubmit = async (e) => {
-     e.preventDefault();
-
-
-     setisLoading(true);
-     const formG = new FormData();
-     formG.append("fullname", formData.fullname);
-     formG.append("dob", formData.dob);
-     formG.append("email", formData.email);
-     formG.append("phone", formData.phone);
-     formG.append("identitypicture", formData.identitypicture);
-     formG.append("gadgetimeinumber", formData.gadgetimeinumber);
-     formG.append("pictureofdevice", formData.pictureofdevice);
-     formG.append("receiptofdevice", formData.receiptofdevice);
-     formG.append("amount", formData.amount);
-
-
-     await axios
-     .post(`${url}/gadget/insuregadget`, formG, {
-     headers: {
-     "Content-Type": "multipart/form-data",
-     Authorization: `Bearer ${clientid}`,
-     },
-     })
-     .then((response) => {
-    // Process the successful response here
-    seterrorStatus("");
-    setsuccessPost(response.data);
-    console.log(response.data);
-    setisLoading(false);
-    })
-    .catch((error) => {
-    // Handle error responses here
-    if (error.response) {
-    if (error.response.status === 402) {
-    seterrorStatus("Policy already exist");
-    setisLoading(false);
-    } else {
-    seterrorStatus("Unknown error exist while submiting form");
-    setisLoading(false);
-    }
-    } else {
-  
-     setisLoading(false);
-    }
-    });
-     };
